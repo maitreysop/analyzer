@@ -1,7 +1,7 @@
-"""sample_analyser: utilities for sorting and analysing weighted items.
+"""analyzer: utilities for sorting and analysing weighted items.
 
-The core logic lives in :mod:`sample_analyser.analyser`; the names are
-re-exported here so `from sample_analyser import sort_by_weight` keeps
+The core logic lives in :mod:`analyzer.analyser`; the names are
+re-exported here so `from analyzer import sort_by_weight` keeps
 working.
 """
 

@@ -1,7 +1,7 @@
-"""Flask web app and JSON API around the sample_analyser utilities.
+"""Flask web app and JSON API around the analyzer utilities.
 
 Run with:
-    uv run sample-analyser-web
+    uv run analyzer-web
 """
 
 from __future__ import annotations

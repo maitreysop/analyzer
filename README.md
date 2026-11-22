@@ -1,4 +1,4 @@
-# sample_analyser
+# analyzer
 
 This is a sample project.
 
@@ -8,7 +8,7 @@ From the project root:
 
 ```bash
 uv sync                      # one-time: create .venv and install everything
-uv run sample-analyser-web   # start the web app + API
+uv run analyzer-web   # start the web app + API
 ```
 
 Then open **http://127.0.0.1:5000** in your browser. Stop the server with
@@ -52,7 +52,7 @@ This creates a virtual environment at `.venv/`, installs the package
 ### Command line
 
 ```bash
-uv run sample-analyser
+uv run analyzer
 ```
 
 Prints a small demo dataset sorted by weight, plus the heaviest item(s).
@@ -60,7 +60,7 @@ Prints a small demo dataset sorted by weight, plus the heaviest item(s).
 ### As a library
 
 ```python
-from sample_analyser import sort_by_weight, get_heaviest
+from analyzer import sort_by_weight, get_heaviest
 
 data = [
     {"name": "apple", "weight": "150"},
@@ -77,7 +77,7 @@ get_heaviest(data)
 ### Web app & JSON API
 
 ```bash
-uv run sample-analyser-web
+uv run analyzer-web
 ```
 
 Serves a web frontend at http://127.0.0.1:5000 (paste a JSON array of items,
