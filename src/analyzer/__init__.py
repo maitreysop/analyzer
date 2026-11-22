@@ -1,42 +1,13 @@
-from typing import Any
+"""sample_analyser: utilities for sorting and analysing weighted items.
 
+The core logic lives in :mod:`sample_analyser.analyser`; the names are
+re-exported here so `from sample_analyser import sort_by_weight` keeps
+working.
+"""
 
-def sort_by_weight(items: list[dict[str, Any]], reverse: bool = False) -> list[dict[str, Any]]:
-    """Return a new list of {'name': ..., 'weight': ...} dicts sorted by weight.
+from .analyser import get_heaviest, sort_by_weight
 
-    Weights may be numbers or numeric strings (e.g. '12.5').
-    Raises ValueError if an item is missing 'weight' or has a non-numeric weight.
-    """
-    if not isinstance(items, list):
-        raise TypeError(f"Expected a list of dicts, got {type(items).__name__}")
-
-    def weight_key(item: dict[str, Any]) -> float:
-        if not isinstance(item, dict) or "weight" not in item:
-            raise ValueError(f"Item is missing 'weight': {item!r}")
-        try:
-            return float(item["weight"])
-        except (TypeError, ValueError) as exc:
-            raise ValueError(f"Invalid weight for item {item!r}") from exc
-
-    return sorted(items, key=weight_key, reverse=reverse)
-
-
-def get_heaviest(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Return all items that share the highest weight (ties included).
-
-    Returns an empty list if items is empty.
-    """
-    sorted_items = sort_by_weight(items, reverse=True)
-    if not sorted_items:
-        return []
-
-    max_weight = float(sorted_items[0]["weight"])
-    heaviest = []
-    for item in sorted_items:
-        if float(item["weight"]) != max_weight:
-            break
-        heaviest.append(item)
-    return heaviest
+__all__ = ["sort_by_weight", "get_heaviest"]
 
 
 def main() -> None:

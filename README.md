@@ -108,6 +108,10 @@ string) `weight`. A missing or non-numeric weight returns `400`.
 
 ## Development
 
+Setting up on **Windows**? Follow the step-by-step guide:
+[`docs/development-windows.md`](docs/development-windows.md) — toolchain
+(Git, Python, pip, uv), running the web app, and testing the API with HTTPie.
+
 ```bash
 uv add <package>          # add a runtime dependency
 uv add --dev <package>    # add a dev dependency
